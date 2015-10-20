@@ -11,6 +11,8 @@ txt = open(filename)
 print "Here's your file %r:" % filename
 # print the content of the file assigned to 'txt' variable
 print txt.read()
+# close the txt file
+txt.close()
 
 # pring the string
 print "Type the filename again:"
@@ -20,5 +22,7 @@ file_again = raw_input("> ")
 # open the file with the name stored in 'file_again' variable and assign that file to the 'txt_again' variable
 txt_again = open(file_again)
 
-#print the content of the file assigned to the 'txt_again' variable
+# print the content of the file assigned to the 'txt_again' variable
 print txt_again.read()
+# close the txt_again file
+txt_again.close()
