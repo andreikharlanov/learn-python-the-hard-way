@@ -12,6 +12,7 @@ print "Opening the file..."
 target = open(filename, 'w')
 
 print "Trancating the file. Goodbye!"
+# but we don't need to call truncate() on target, because we opened the file with the 'w' mode
 target.truncate()
 
 print "Now I'm going to ask you for three lines."
