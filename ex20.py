@@ -40,11 +40,11 @@ current_line = 1
 print_a_line(current_line, current_file)
 
 # increase the value of the 'current_line' variable by 1
-current_line = current_line + 1
+current_line += 1
 # run the function 'print_a_line' with 'current_line' and 'current_file' as arguments
 print_a_line(current_line, current_file)
 
 # increase the value of the 'current_line' variable by 1
-current_line = current_line + 1
+current_line += 1
 # run the function 'print_a_line' with 'current_line' and 'current_file' as arguments
 print_a_line(current_line, current_file)
