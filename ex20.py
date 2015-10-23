@@ -8,9 +8,10 @@ script, input_file = argv
 def print_all(f):
     print f.read()
 
-# define the 'print_all' function
+# define the 'rewind' function
 def rewind(f):
     f.seek(0)
+
 # define the 'print_a_line' function
 def print_a_line(line_count, f):
     # print the value of the variable 'line_count' and the result of calling the 'readline' function on the 'f' argument
