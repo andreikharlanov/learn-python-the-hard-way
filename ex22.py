@@ -53,25 +53,30 @@ print "\nOne\nOne\tTwo\nOne\tTwo\tThree\n"
 
 print "\"\t\'\n"
 
-text_file_from = open(command_line_argument_1)
-text_file_from_content = text_file_from.read()
+def get_text(file):
+    return open(file, 'r').read()
 
+text_file_from_content = get_text(command_line_argument_1)
 print "This is the content of the %s now: %s" % (command_line_argument_1, text_file_from_content)
 
+# delete content of the 'to' file
 text_file_to_write = open(command_line_argument_2, 'w')
 text_file_to_write.close()
 
-text_file_to_read = open(command_line_argument_2, 'r')
-text_file_to_content = text_file_to_read.read()
+text_file_to_content = get_text(command_line_argument_2)
 print "This is the content of the %s BEFORE COPY: %s" % (command_line_argument_2, text_file_to_content)
-text_file_to_read.close()
 
+# copy text from the 'from' file to the 'to' file
 text_file_to_write = open(command_line_argument_2, 'w')
 text_file_to_write.write(text_file_from_content)
 text_file_to_write.close()
-text_file_from.close()
 
-text_file_to_read = open(command_line_argument_2, 'r')
-text_file_to_content = text_file_to_read.read()
+text_file_to_content = get_text(command_line_argument_2)
 print "This is the content of the %s AFTER COPY: %s" % (command_line_argument_2, text_file_to_content)
-text_file_to_read.close()
+
+
+def print_two_lines(file):
+    print file.readline()
+    print file.readline()
+
+print print_two_lines(open(command_line_argument_1))
