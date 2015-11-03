@@ -24,3 +24,12 @@ if people <= dogs:
 
 if people == dogs:
     print "People are dogs."
+
+if cats < dogs:
+    print "We have more dogs than cats."
+
+if cats > dogs:
+    print "We have more cats than dogs."
+
+if cats == dogs:
+    print "We have equal amount of cats and dogs."
