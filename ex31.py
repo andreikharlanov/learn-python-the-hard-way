@@ -1,4 +1,17 @@
-print "You enter a dark room with two doors. Do you go through door #1 or door #2?"
+def room_3():
+    print "Do you want to go though the exit? Yes or no?"
+
+    exit = raw_input("Choose wisely! > ")
+
+    if exit == "yes":
+        print "Your are a smart person. You survived."
+    elif exit == "no":
+        print "You're a fool. A bear comes to the room you are standing in and eats you. What a bad move that was."
+    else:
+        print "Are you blind? You're supposed to say yes or no, idiot!"
+        room_3()
+
+print "You enter a dark room with three doors. Do you go through door #1, door #2 or door #3?"
 
 door = raw_input("> ")
 
@@ -28,6 +41,20 @@ elif door == "2":
         print "Your body survives powered by a mind of jello. Good job!"
     else:
         print "The insanity rots your eyes into a pool of muck. Good job!"
+
+elif door == "3":
+    print "You found an exit from this horrible world."
+    print "Do you want to go though the exit? Yes or no?"
+
+    exit = raw_input("Choose wisely! > ")
+
+    if exit == "yes":
+        print "Your are a smart person. You survived."
+    elif exit == "no":
+        print "You're a fool. A bear comes to the room you are standing in and eats you. What a bad move that was."
+    else:
+        print "Are you blind? You're supposed to say yes or no, idiot!"
+        room_3()
 
 else:
     print "You stumble around and fall on a knife and die. Good job!"
