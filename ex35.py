@@ -13,13 +13,13 @@ def interpret_string(s):
 def get_number():
     choice = raw_input("> ")
 
-    number = interpret_string(choice)
+    possibly_number = interpret_string(choice)
 
-    if number == False:
+    if possibly_number == False:
         print "Type a number, idiot!"
         return get_number()
     else:
-        return number
+        return possibly_number
 
 def gold_room():
     print "This room is full of gold. How much do you take?"
