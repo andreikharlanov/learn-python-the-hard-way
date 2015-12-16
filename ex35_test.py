@@ -5,10 +5,11 @@ def interpret_string(s):
         return False
     if s.isdigit():
         return int(s)
-    try:
-        return float(s)
-    except ValueError:
-        return False
+    else:
+        try:
+            return float(s)
+        except ValueError:
+            return False
 
 def get_number():
     choice = raw_input("> ")

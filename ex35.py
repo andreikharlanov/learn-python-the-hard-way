@@ -19,10 +19,11 @@ def interpret_string(s):
     # If we can, the function returns a float.
     # If it's impossible to make a float out of the passed varible,
     # we catch the ValueError and the function returns False.
-    try:
-        return float(s)
-    except ValueError:
-        return False
+    else:
+        try:
+            return float(s)
+        except ValueError:
+            return False
 
 def get_number():
     choice = raw_input("> ")
