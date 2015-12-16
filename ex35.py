@@ -1,10 +1,24 @@
 from sys import exit
 
 def interpret_string(s):
+
+    """This function checks if the passed variable is a integer or float number.
+    If yes, it returns an integer or a float.
+    If the passed variable is not an integer or a float, it returns False.
+    """
+
+    # Check if the passed variable is a string, if not return False
     if not isinstance(s, basestring):
         return False
+    # Check if the passed varialbe contains only digits.
+    # If yes, it's possible to return it as an integer. And we do just that.
     if s.isdigit():
         return int(s)
+    # If the passed variable is not an integer,
+    # we check if we can return it as a float.
+    # If we can, the function returns a float.
+    # If it's impossible to make a float out of the passed varible,
+    # we catch the ValueError and the function returns False.
     try:
         return float(s)
     except ValueError:
