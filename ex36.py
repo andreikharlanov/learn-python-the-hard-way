@@ -12,8 +12,8 @@ def first_text_room(room_number):
 def room_1():
     first_text_room(1)
 
-    print "It has just two doors."
-    print "1. The first one is behind you, you just untered through it."
+    print "It has just two doors:"
+    print "1. The first one is behind you, you just entered through it."
     print "2. The second door is infront of you."
 
     print "Also there is a text on the wall. Do you want to read it?"
@@ -47,10 +47,12 @@ def room_1():
 def room_2():
     first_text_room(2)
 
-    print "It has two doors."
+    print "It has four doors:"
     print "1. The first one is behind you, you just untered through it."
-    print "2. The second door is on the left."
-    print "3. The third door is on the right."
+    print "2. The small door infront of you. It seems unusual."
+    print "3. The big door infront of you."
+    print "4. The third door is on the right."
+    print "    "
     print "Which one do you take?"
 
     def room_2_choice():
@@ -65,11 +67,15 @@ def room_2():
         elif choice == "second" or choice == "2" or choice == "left":
             print "You chose door #2. OK! But it's closed."
             steps += 1
-            room_2()
-        elif choice == "third" or choice == "3" or choice == "right":
+            room_3()
+        elif choice == "third" or choice == "3" or choice == "small":
             print "You chose door #3. OK! But it's closed."
             steps += 1
-            room_2()
+            room_3()
+        elif choice == "fourth" or choice == "4" or choice == "infront":
+            print "You chose door #3. OK! But it's closed."
+            steps += 1
+            room_6()
         else:
             print "I don't understand you."
             room_2_choice()
