@@ -35,6 +35,11 @@ def go_to_room(room_number):
     elif room_number == 12:
         room_12()
 
+def unfinished_room():
+    print "This room is unfinished. We transfer you to room you entred this one from."
+    print "Now you'll go back to %d room." % previous_room
+    go_to_room(previous_room)
+
 def room_1():
     welcome_text_room(1)
 
@@ -125,29 +130,21 @@ def room_2():
 def room_3():
     welcome_text_room(3)
 
-    print "This room is unfinished. We transfer you to room you entred this one from."
-    print "Now you'll go back to %d room." % previous_room
-    go_to_room(previous_room)
+    unfinished_room()
 
 def room_4():
     welcome_text_room(4)
 
-    print "This room is unfinished. We transfer you to room you entred this one from."
-    print "Now you'll go back to %d room." % previous_room
-    go_to_room(previous_room)
+    unfinished_room()
 
 def room_5():
     welcome_text_room(5)
 
-    print "This room is unfinished. We transfer you to room you entred this one from."
-    print "Now you'll go back to %d room." % previous_room
-    go_to_room(previous_room)
+    unfinished_room()
 
 def room_6():
     welcome_text_room(6)
 
-    print "This room is unfinished. We transfer you to room you entred this one from."
-    print "Now you'll go back to %d room." % previous_room
-    go_to_room(previous_room)
+    unfinished_room()
 
 room_1()
