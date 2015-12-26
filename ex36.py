@@ -42,7 +42,7 @@ def go_to_room(room_number):
         room_12()
 
 def unfinished_room():
-    print "This room is unfinished. We transfer you to room you entred this one from."
+    print "This room is unfinished. We'll transfer you to room you entred this one from."
     print "Now you'll go back to %d room." % previous_room
     go_to_room(previous_room)
 
