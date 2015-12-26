@@ -4,6 +4,10 @@ previous_room = 1
 
 text_on_the_wall = "\nM... mmm..\n"
 
+howdy = ["Hey, boy!", "La-la-la, whom I see...", "Are you back, baby boy?"]
+
+print howdy[random.randrange(0,3)]
+
 def welcome_text_room(room_number):
     print "\n----\n"
     print "You've made %d steps already.\n" % steps
@@ -147,4 +151,34 @@ def room_6():
 
     unfinished_room()
 
+def room_7():
+    welcome_text_room(7)
+
+    unfinished_room()
+def room_7():
+    welcome_text_room(8)
+
+    unfinished_room()
+
+def room_9():
+    welcome_text_room(9)
+
+    unfinished_room()
+
+def room_10():
+    welcome_text_room(10))
+
+    unfinished_room()
+
+def room_11():
+    welcome_text_room(11)
+
+    unfinished_room()
+
+def room_12():
+    welcome_text_room(12)
+
+    unfinished_room()
+
+# Start the game
 room_1()
