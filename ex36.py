@@ -1,3 +1,5 @@
+import random
+
 steps = 0
 
 previous_room = 1
@@ -166,7 +168,7 @@ def room_9():
     unfinished_room()
 
 def room_10():
-    welcome_text_room(10))
+    welcome_text_room(10)
 
     unfinished_room()
 
