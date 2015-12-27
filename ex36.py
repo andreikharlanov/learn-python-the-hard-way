@@ -14,7 +14,7 @@ print howdy[random.randrange(0,3)]
 
 def welcome_text_room(room_number):
     print "\n----\n"
-    print "You've made %d steps already.\n" % steps
+    # print "You've made %d steps already.\n" % steps
     print "You are in a room #%d.\n" % room_number
 
 def go_to_room(room_number):
