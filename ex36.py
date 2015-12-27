@@ -357,7 +357,7 @@ def room_7():
     print "2. Green."
     print "\nWhich one do you take?"
 
-    def room_3_choice():
+    def room_7_choice():
         global steps
         global previous_room_now
         global set_previous_room
