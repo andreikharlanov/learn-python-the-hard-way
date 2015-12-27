@@ -1,4 +1,5 @@
 import random
+from sys import exit
 
 steps = 0
 
@@ -513,7 +514,48 @@ def room_10():
 def room_11():
     welcome_text_room(11)
 
-    unfinished_room(11)
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
+
+    print "It has three doors:"
+    print "1. Green."
+    print "2. Red."
+    print "3. Black."
+    print "\nWhich one do you take?"
+
+    def room_11_choice():
+        global steps
+        global previous_room_now
+        global set_previous_room
+
+        choice = raw_input("> ")
+
+        if choice == "1" or choice == "green":
+            print "You chose door #1. OK!"
+            steps += 1
+            set_previous_room = 11
+            room_9()
+        elif choice == "2" or choice == "red":
+            print "You chose door #2. OK!"
+            print "You found the exit. Nice. Now chill."
+            steps += 1
+            print "You completed the game in %d steps." % steps
+            exit(0)
+        elif choice == "3" or choice == "black":
+            print "You chose door #3. OK!"
+            steps += 1
+            set_previous_room = 11
+            room_13()
+        elif choice == "go back":
+            steps += 1
+            set_previous_room = 11
+            go_to_room(previous_room_now)
+        else:
+            print "I don't understand you."
+            room_11_choice()
+    room_11_choice()
 
 def room_12():
     global steps
@@ -522,11 +564,25 @@ def room_12():
 
     previous_room_now = set_previous_room
 
-    welcome_text_room(4)
+    welcome_text_room(12)
 
     print "There is a monster! You ran away."
     steps += 1
     set_previous_room = 12
+    go_to_room(previous_room_now)
+
+def room_13():
+    global steps
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
+
+    welcome_text_room(13)
+
+    print "There is a monster! You ran away."
+    steps += 1
+    set_previous_room = 13
     go_to_room(previous_room_now)
 
 # Start the game
