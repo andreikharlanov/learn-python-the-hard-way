@@ -54,12 +54,11 @@ def room_1():
 
     print "It has just two doors:"
     print "1. Green door."
-    print "2. Red door.\n"
+    print "2. Red door."
 
-    print "Also there is a text on the wall. Do you want to read it?\n"
-    print "Say 'text', if you want to read the text on the wall."
-    print "Say 'red', if you want to enter the red door."
-    print "Say 'green', if you want to enter the red door."
+    print "\nAlso there is a text on the wall. Do you want to read it?\n"
+    print "Type 'text', if you want to read the text on the wall."
+    print "Otherwise type the color of the door you want to enter."
 
     def room_1_choice():
         global steps
@@ -71,14 +70,14 @@ def room_1():
             print text_on_the_wall
             steps += 1
             room_1()
-        elif choice == "1" or choice == "red":
-            print "You open the red door infront of you."
-            steps += 1
-            room_2()
-        elif choice == "2" or choice == "green" or choice == "back":
+        elif choice == "1" or choice == "green" or choice == "go back":
             print "You try to open the green door. Tough luck, it's closed."
             steps += 1
             room_1()
+        elif choice == "2" or choice == "red":
+            print "You open the red door infront of you."
+            steps += 1
+            room_2()
         else:
             print "I don't understand you."
             room_1_choice()
@@ -92,8 +91,8 @@ def room_2():
     print "2. Yellow."
     print "3. The small orange door. It seems unusual."
     print "4. Green."
-    print "5. Blue.\n"
-    print "Which one do you take?"
+    print "5. Blue."
+    print "\nWhich one do you take?"
 
     def room_2_choice():
         global steps
@@ -136,7 +135,33 @@ def room_2():
 def room_3():
     welcome_text_room(3)
 
-    unfinished_room()
+    print "It has two doors:"
+    print "1. Yellow."
+    print "2. Red."
+    print "\nWhich one do you take?"
+
+    def room_3_choice():
+        global steps
+        global previous_room
+
+        choice = raw_input("> ")
+
+        if choice == "1" or choice == "yellow":
+            print "You chose door #1. OK!"
+            steps += 1
+            previous_room = 3
+            room_2()
+        elif choice == "2" or choice == "red":
+            print "You chose door #2. OK!"
+            steps += 1
+            previous_room = 3
+            room_4()
+        elif choice == "go back":
+            go_to_room(previous_room)
+        else:
+            print "I don't understand you."
+            room_2_choice()
+    room_3_choice()
 
 def room_4():
     welcome_text_room(4)
