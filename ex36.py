@@ -386,7 +386,41 @@ def room_7():
 def room_8():
     welcome_text_room(8)
 
-    unfinished_room(8)
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
+
+    print "It has two doors:"
+    print "1. Green."
+    print "2. Blue."
+    print "\nWhich one do you take?"
+
+    def room_8_choice():
+        global steps
+        global previous_room_now
+        global set_previous_room
+
+        choice = raw_input("> ")
+
+        if choice == "1" or choice == "green":
+            print "You chose door #1. OK!"
+            steps += 1
+            set_previous_room = 8
+            room_7()
+        elif choice == "2" or choice == "blue":
+            print "You chose door #2. OK!"
+            steps += 1
+            set_previous_room = 8
+            room_9()
+        elif choice == "go back":
+            steps += 1
+            set_previous_room = 8
+            go_to_room(previous_room_now)
+        else:
+            print "I don't understand you."
+            room_8_choice()
+    room_8_choice()
 
 def room_9():
     welcome_text_room(9)
