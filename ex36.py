@@ -101,6 +101,8 @@ def room_1():
             room_2()
         elif choice == "go back":
             steps += 1
+            if previous_room_now != 0:
+                set_previous_room = 1
             go_to_room(previous_room_now)
         else:
             print "I don't understand you."
@@ -156,6 +158,7 @@ def room_2():
             set_previous_room = 2
             room_6()
         elif choice == "go back":
+            steps += 1
             set_previous_room = 2
             go_to_room(previous_room_now)
         else:
@@ -194,6 +197,7 @@ def room_3():
             set_previous_room = 3
             room_4()
         elif choice == "go back":
+            steps += 1
             set_previous_room = 3
             go_to_room(previous_room_now)
         else:
@@ -244,6 +248,7 @@ def room_4():
             set_previous_room = 4
             room_2()
         elif choice == "go back":
+            steps += 1
             set_previous_room = 4
             go_to_room(previous_room_now)
         else:
@@ -281,6 +286,7 @@ def room_5():
             room_5_choice()
         elif choice == "go back":
             steps += 1
+            set_previous_room = 5
             go_to_room(previous_room_now)
         else:
             print "I don't understand you."
@@ -330,6 +336,7 @@ def room_6():
             set_previous_room = 6
             room_9()
         elif choice == "go back":
+            steps += 1
             set_previous_room = 6
             go_to_room(previous_room_now)
         else:
