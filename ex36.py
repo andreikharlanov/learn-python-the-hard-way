@@ -244,7 +244,7 @@ def room_4():
     room_4_choice()
 
 def room_5():
-    welcome_text_room(1)
+    welcome_text_room(5)
 
     global previous_room_now
     global set_previous_room
@@ -263,7 +263,7 @@ def room_5():
 
         choice = raw_input("> ")
 
-        if choice == "1" or choice == "yes" or choice = "open" or choice == "green":
+        if choice == "1" or choice == "yes" or choice == "open" or choice == "green":
             print "You chose door #1. OK!"
             steps += 1
             set_previous_room = 5
