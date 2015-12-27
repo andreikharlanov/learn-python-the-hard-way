@@ -45,10 +45,18 @@ def go_to_room(room_number):
     elif room_number == 12:
         room_12()
 
-def unfinished_room():
+def unfinished_room(room_number):
+    global steps
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
+
     print "This room is unfinished. We'll transfer you to room you entred this one from."
-    print "Now you'll go back to %d room." % previous_room
-    go_to_room(previous_room)
+    print "Now you'll go back to the room #%d." % previous_room_now
+    steps += 1
+    set_previous_room = room_number
+    go_to_room(previous_room_now)
 
 def room_0():
     print "There is no way to go back to room #0."
@@ -282,31 +290,32 @@ def room_5():
 def room_6():
     welcome_text_room(6)
 
-    unfinished_room()
+    unfinished_room(6)
 
 def room_7():
     welcome_text_room(7)
 
-    unfinished_room()
+    unfinished_room(7)
+
 def room_7():
     welcome_text_room(8)
 
-    unfinished_room()
+    unfinished_room(8)
 
 def room_9():
     welcome_text_room(9)
 
-    unfinished_room()
+    unfinished_room(9)
 
 def room_10():
     welcome_text_room(10)
 
-    unfinished_room()
+    unfinished_room(10)
 
 def room_11():
     welcome_text_room(11)
 
-    unfinished_room()
+    unfinished_room(11)
 
 def room_12():
     global steps
