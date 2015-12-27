@@ -2,7 +2,9 @@ import random
 
 steps = 0
 
-previous_room = 1
+previous_room_now = 0
+
+set_previous_room = 0
 
 text_on_the_wall = "\nM... mmm..\n"
 
@@ -16,7 +18,9 @@ def welcome_text_room(room_number):
     print "You are in a room #%d.\n" % room_number
 
 def go_to_room(room_number):
-    if room_number == 1:
+    if room_number == 0:
+        room_0()
+    elif room_number == 1:
         room_1()
     elif room_number == 2:
         room_2()
@@ -46,11 +50,17 @@ def unfinished_room():
     print "Now you'll go back to %d room." % previous_room
     go_to_room(previous_room)
 
+def room_0():
+    print "There is no way to go back to room #0."
+    go_to_room(1)
+
 def room_1():
     welcome_text_room(1)
 
-    global previous_room
-    previous_room = 1
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
 
     print "It has just two doors:"
     print "1. Green door."
@@ -62,6 +72,8 @@ def room_1():
 
     def room_1_choice():
         global steps
+        global previous_room_now
+        global set_previous_room
 
         choice = raw_input("> ")
 
@@ -70,14 +82,18 @@ def room_1():
             print text_on_the_wall
             steps += 1
             room_1()
-        elif choice == "1" or choice == "green" or choice == "go back":
+        elif choice == "1" or choice == "green":
             print "You try to open the green door. Tough luck, it's closed."
             steps += 1
             room_1()
         elif choice == "2" or choice == "red":
             print "You open the red door infront of you."
             steps += 1
+            set_previous_room = 1
             room_2()
+        elif choice == "go back":
+            steps += 1
+            go_to_room(previous_room_now)
         else:
             print "I don't understand you."
             room_1_choice()
@@ -85,6 +101,11 @@ def room_1():
 
 def room_2():
     welcome_text_room(2)
+
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
 
     print "It has five doors:"
     print "1. Red."
@@ -96,37 +117,39 @@ def room_2():
 
     def room_2_choice():
         global steps
-        global previous_room
+        global previous_room_now
+        global set_previous_room
 
         choice = raw_input("> ")
 
         if choice == "1" or choice == "red":
             print "You chose door #1. OK!"
             steps += 1
-            previous_room = 2
+            set_previous_room = 2
             room_1()
         elif choice == "2" or choice == "yellow":
             print "You chose door #2. OK!"
             steps += 1
-            previous_room = 2
+            set_previous_room = 2
             room_3()
         elif choice == "3" or choice == "orange":
             print "You chose door #3. OK!"
             steps += 1
-            previous_room = 2
+            set_previous_room = 2
             room_4()
         elif choice == "4" or choice == "green":
             print "You chose door #4. OK!"
             steps += 1
-            previous_room = 2
+            set_previous_room = 2
             room_5()
         elif choice == "5" or choice == "blue":
             print "You chose door #5. You will go to the room #6."
             steps += 1
-            previous_room = 2
+            set_previous_room = 2
             room_6()
         elif choice == "go back":
-            go_to_room(previous_room)
+            set_previous_room = 2
+            go_to_room(previous_room_now)
         else:
             print "I don't understand you."
             room_2_choice()
@@ -135,6 +158,11 @@ def room_2():
 def room_3():
     welcome_text_room(3)
 
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
+
     print "It has two doors:"
     print "1. Yellow."
     print "2. Red."
@@ -142,22 +170,24 @@ def room_3():
 
     def room_3_choice():
         global steps
-        global previous_room
+        global previous_room_now
+        global set_previous_room
 
         choice = raw_input("> ")
 
         if choice == "1" or choice == "yellow":
             print "You chose door #1. OK!"
             steps += 1
-            previous_room = 3
+            set_previous_room = 3
             room_2()
         elif choice == "2" or choice == "red":
             print "You chose door #2. OK!"
             steps += 1
-            previous_room = 3
+            set_previous_room = 3
             room_4()
         elif choice == "go back":
-            go_to_room(previous_room)
+            set_previous_room = 3
+            go_to_room(previous_room_now)
         else:
             print "I don't understand you."
             room_2_choice()
@@ -165,6 +195,11 @@ def room_3():
 
 def room_4():
     welcome_text_room(4)
+
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
 
     print "It has four doors:"
     print "1. Red."
@@ -175,32 +210,34 @@ def room_4():
 
     def room_4_choice():
         global steps
-        global previous_room
+        global previous_room_now
+        global set_previous_room
 
         choice = raw_input("> ")
 
         if choice == "1" or choice == "red":
             print "You chose door #1. OK!"
             steps += 1
-            previous_room = 4
+            set_previous_room = 4
             room_3()
         elif choice == "2" or choice == "green":
             print "You chose door #2. OK!"
             steps += 1
-            previous_room = 4
+            set_previous_room = 4
             room_12()
         elif choice == "3" or choice == "purple":
             print "You chose door #3. But there are a lot of stones in front of it."
             print "You can't open it."
             steps += 1
-            room_2_choice()
+            room_4_choice()
         elif choice == "4" or choice == "orange":
             print "You chose door #4. OK!"
             steps += 1
-            previous_room = 4
+            set_previous_room = 4
             room_2()
         elif choice == "go back":
-            go_to_room(previous_room)
+            set_previous_room = 4
+            go_to_room(previous_room_now)
         else:
             print "I don't understand you."
             room_4_choice()
@@ -242,11 +279,17 @@ def room_11():
 
 def room_12():
     global steps
-    global previous_room
+    global previous_room_now
+    global set_previous_room
+
+    previous_room_now = set_previous_room
+
+    welcome_text_room(4)
 
     print "There is a monster! You ran away."
     steps += 1
-    go_to_room(previous_room)
+    set_previous_room = 12
+    go_to_room(previous_room_now)
 
 # Start the game
 room_1()
