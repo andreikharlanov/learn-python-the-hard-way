@@ -166,7 +166,45 @@ def room_3():
 def room_4():
     welcome_text_room(4)
 
-    unfinished_room()
+    print "It has four doors:"
+    print "1. Red."
+    print "2. Green."
+    print "3. Purple"
+    print "4. Orange."
+    print "\nWhich one do you take?"
+
+    def room_4_choice():
+        global steps
+        global previous_room
+
+        choice = raw_input("> ")
+
+        if choice == "1" or choice == "red":
+            print "You chose door #1. OK!"
+            steps += 1
+            previous_room = 4
+            room_3()
+        elif choice == "2" or choice == "green":
+            print "You chose door #2. OK!"
+            steps += 1
+            previous_room = 4
+            room_12()
+        elif choice == "3" or choice == "purple":
+            print "You chose door #3. But there are a lot of stones in front of it."
+            print "You can't open it."
+            steps += 1
+            room_2_choice()
+        elif choice == "4" or choice == "orange":
+            print "You chose door #4. OK!"
+            steps += 1
+            previous_room = 4
+            room_2()
+        elif choice == "go back":
+            go_to_room(previous_room)
+        else:
+            print "I don't understand you."
+            room_4_choice()
+    room_4_choice()
 
 def room_5():
     welcome_text_room(5)
@@ -203,9 +241,12 @@ def room_11():
     unfinished_room()
 
 def room_12():
-    welcome_text_room(12)
+    global steps
+    global previous_room
 
-    unfinished_room()
+    print "There is a monster! You ran away."
+    steps += 1
+    go_to_room(previous_room)
 
 # Start the game
 room_1()
