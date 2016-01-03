@@ -7,6 +7,12 @@ previous_room_now = 0
 
 set_previous_room = 0
 
+coins = 0
+
+coins_room_3 = False
+
+coins_choice_too_much = False
+
 text_on_the_wall = "\nM... mmm..\n"
 
 howdy = ["Hey, boy!", "La-la-la, whom I see...", "Are you back, baby boy?"]
@@ -175,19 +181,24 @@ def room_3():
 
     previous_room_now = set_previous_room
 
-    print "It has two doors:"
-    print "1. Yellow."
-    print "2. Red."
-    print "\nWhich one do you take?"
+    print "It has two doors and a pile of coins. So you have some options what to do:"
+    print "1. Open yellow door."
+    print "2. Open red door."
+    print "3. Take some coins."
+
+    print "\nWhat do you want to do?"
 
     def room_3_choice():
         global steps
         global previous_room_now
         global set_previous_room
+        global coins
+        global coins_room_3
+        global coins_choice_too_much
 
         choice = raw_input("> ")
 
-        if choice == "1" or choice == "yellow":
+        if choice == "1" or choice == "yellow" or choice == "open yellow door" or choice == "yellow door":
             print "You chose door #1. OK!"
             steps += 1
             set_previous_room = 3
@@ -197,6 +208,59 @@ def room_3():
             steps += 1
             set_previous_room = 3
             room_4()
+        elif coins_room_3 == False and choice == "3" or choice == "coins" or choice == "take coins" or choice == "take some coins":
+            steps += 1
+            print "OK, how many coins do you want to take?"
+            coins_choice = raw_input("> ")
+            coins_amount = int(coins_choice)
+            if coins_amount == 0:
+                steps += 1
+                coins_room_3 = True
+                print "Why did this? Don't waste my time."
+                print "You have 0 coins but less time then before. Stupid."
+                print "Now choose what door to open next."
+                room_3_choice()
+            elif coins_amount > 0 and coins_amount <= 3:
+                steps += 1
+                coins_room_3 = True
+                coins += coins_amount
+                print "Cool, now you have %d coins in your pocket." % coins
+                print "Now choose what door to open next."
+                room_3_choice()
+            elif coins_amount > 3:
+                steps += 1
+                coins_room_3 = True
+                coins_choice_too_much = True
+                print "Oh, you are greedy. We don't alow to take so much coins here."
+                print "Now choose what door to open next."
+
+                room_3_choice()
+        elif (coins_room_3 == True and choice == "3" and coins > 0 or
+            coins_room_3 == True and choice == "coins" and coins > 0 or
+            coins_room_3 == True and choice == "take coins" and coins > 0 or
+            coins_room_3 == True and choice == "take some coins" and coins > 0):
+            steps += 1
+            print "Don't be greedy, you've already took some coins before."
+            room_3_choice()
+        elif (coins_room_3 == True and choice == "3" and coins == 0 and coins_choice_too_much == False or
+            coins_room_3 == True and choice == "coins" and coins == 0 and coins_choice_too_much == False or
+            coins_room_3 == True and choice == "take coins" and coins == 0 and coins_choice_too_much == False or
+            coins_room_3 == True and choice == "take some coins" and coins == 0 and coins_choice_too_much == False):
+            steps += 1
+            print "You are not allowed to touch coins again,\nbecause last time you wasted everyone's time."
+            print "Stupid."
+            print "Now choose what door to open next."
+            room_3_choice()
+        elif (coins_room_3 == True and choice == "3" and coins_choice_too_much == True or
+            coins_room_3 == True and choice == "coins" and coins_choice_too_much == True or
+            coins_room_3 == True and choice == "take coins" and coins_choice_too_much == True or
+            coins_room_3 == True and choice == "take some coins" and coins_choice_too_much == True):
+            steps += 1
+            print "You are not allowed to touch coins again,\nyou are too greedy."
+            print "Try taking less coins next time."
+            print "Stupid."
+            print "Now choose what door to open next."
+            room_3_choice()
         elif choice == "go back":
             steps += 1
             set_previous_room = 3
@@ -529,6 +593,7 @@ def room_11():
         global steps
         global previous_room_now
         global set_previous_room
+        global coins
 
         choice = raw_input("> ")
 
@@ -542,6 +607,11 @@ def room_11():
             print "You found the exit. Nice. Now chill."
             steps += 1
             print "You completed the game in %d steps." % steps
+            print "You have %d coins in you pocket." % coins
+            if coins_room_3 == True and coins == 0:
+                print "You can blame only yourself for your financial situation."
+                print "You had your chance to take some coins. But you blew it."
+                print "Stupid."
             exit(0)
         elif choice == "3" or choice == "black":
             print "You chose door #3. OK!"
