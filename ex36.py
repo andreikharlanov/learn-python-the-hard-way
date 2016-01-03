@@ -1,4 +1,5 @@
 import random
+import time
 from sys import exit
 
 steps = 0
@@ -231,8 +232,26 @@ def room_3():
                 steps += 1
                 coins_room_3 = True
                 coins_choice_too_much = True
+
                 print "Oh, you are greedy. We don't alow to take so much coins here."
-                print "Now choose what door to open next."
+                print "You're trapped in a cage for your greediness."
+                print "You'll be trapped for %d seconds as you tried to take %d coins." % (coins_amount, coins_amount)
+
+                seconds = coins_amount
+
+                while seconds > -1:
+                    if seconds > 1:
+                        print "You need to wait for %d seconds." % seconds
+                        seconds -= 1
+                        time.sleep(1)
+                    elif seconds == 1:
+                        print "You need to wait for 1 second."
+                        seconds -= 1
+                        time.sleep(1)
+                    elif seconds == 0:
+                        seconds -= 1
+                        print "You are free now."
+                        print "Choose what door to open next."
 
                 room_3_choice()
         elif (coins_room_3 == True and choice == "3" and coins > 0 or
@@ -241,13 +260,14 @@ def room_3():
             coins_room_3 == True and choice == "take some coins" and coins > 0):
             steps += 1
             print "Don't be greedy, you've already took some coins before."
+            print "Now choose what door to open next."
             room_3_choice()
         elif (coins_room_3 == True and choice == "3" and coins == 0 and coins_choice_too_much == False or
             coins_room_3 == True and choice == "coins" and coins == 0 and coins_choice_too_much == False or
             coins_room_3 == True and choice == "take coins" and coins == 0 and coins_choice_too_much == False or
             coins_room_3 == True and choice == "take some coins" and coins == 0 and coins_choice_too_much == False):
             steps += 1
-            print "You are not allowed to touch coins again,\nbecause last time you wasted everyone's time."
+            print "You are not allowed to touch coins again, because last time you wasted everyone's time."
             print "Stupid."
             print "Now choose what door to open next."
             room_3_choice()
@@ -256,7 +276,7 @@ def room_3():
             coins_room_3 == True and choice == "take coins" and coins_choice_too_much == True or
             coins_room_3 == True and choice == "take some coins" and coins_choice_too_much == True):
             steps += 1
-            print "You are not allowed to touch coins again,\nyou are too greedy."
+            print "You are not allowed to touch coins again, you are too greedy."
             print "Try taking less coins next time."
             print "Stupid."
             print "Now choose what door to open next."
