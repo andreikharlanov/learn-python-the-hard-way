@@ -1,12 +1,13 @@
 import time
 
-seconds = 0
+print "Hom many seconds do you wish to wait?"
 
-while seconds < 15:
-    print seconds
-    if seconds < 14:
-        print "You need to wait for %d seconds." % (15 - seconds)
-    elif seconds == 14:
+seconds = int(raw_input("> "))
+
+while seconds != 0:
+    if seconds == 1:
         print "You need to wait for 1 second."
-    seconds += 1
+    elif seconds != 1:
+        print "You need to wait for %d seconds." % seconds
+    seconds -= 1
     time.sleep(1)
