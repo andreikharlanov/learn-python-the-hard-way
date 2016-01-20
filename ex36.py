@@ -14,6 +14,10 @@ coins_room_3 = False
 
 coins_choice_too_much = False
 
+treasure_knowledge = False
+
+treasure = False
+
 text_on_the_wall = "\nM... mmm..\n"
 
 howdy = ["Hey, boy!", "La-la-la, whom I see...", "Are you back, baby boy?"]
@@ -397,6 +401,7 @@ def room_6():
         global steps
         global previous_room_now
         global set_previous_room
+        global treasure
 
         choice = raw_input("> ")
 
@@ -407,6 +412,9 @@ def room_6():
             room_2()
         elif choice == "2" or choice == "purple":
             print "You chose door #2. OK!"
+            if treasure_knowledge == True:
+                print "Oh, you found a treasure in the tunnel!"
+                treasure = True
             steps += 1
             set_previous_room = 6
             room_4()
@@ -440,9 +448,12 @@ def room_7():
     print "It has two doors:"
     print "1. Yellow."
     print "2. Green."
-    print "\nWhich one do you take?"
+    print "And you see a wayfarer in the dark corner."
+    print "\nDo you want to open a door? If yes, what door?"
+    print "Or do you want to talk with the wayfarer?"
 
     def room_7_choice():
+        global treasure_knowledge
         global steps
         global previous_room_now
         global set_previous_room
@@ -459,6 +470,13 @@ def room_7():
             steps += 1
             set_previous_room = 7
             room_8()
+        elif choice == "talk" or choie == "wayfarer":
+            steps += 1
+            print "You talk to the wayfarer."
+            print "He told you that in the tunnel behind the purple door in the room #6 you can find a treasure."
+            print "Go there if you want."
+            treasure_knowledge = True
+            room_7()
         elif choice == "go back":
             steps += 1
             set_previous_room = 7
@@ -632,6 +650,8 @@ def room_11():
                 print "You can blame only yourself for your financial situation."
                 print "You had your chance to take some coins. But you blew it."
                 print "Stupid."
+            if treasure == True:
+                print "And you found a treasure in the tunnel!"
             exit(0)
         elif choice == "3" or choice == "black":
             print "You chose door #3. OK!"
