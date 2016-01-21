@@ -12,6 +12,11 @@ coins = 0
 
 coins_room_3 = False
 
+# If a user has ever tooken coins in the room #5 behind the monster
+coins_room_5 = False
+
+monster_woken_up_room_5 = False
+
 coins_choice_too_much = False
 
 treasure_knowledge = False
@@ -368,23 +373,51 @@ def room_5():
     print "It has just one door:"
     print "1. Green door."
 
-    print "\nDo you want to open that door?\n"
+    print "\nAnd you see a pile of coins in the corner. But there is a monster in front of the coins."
+    print "The monster may be sleeping. But you are not sure."
+
+    print "\nDo you want to open green door?"
+    print "Or do you want to kick the monster's ass?"
+    print "Or you want to try to coins?"
 
     def room_5_choice():
         global steps
         global previous_room_now
         global set_previous_room
+        global coins
+        global coins_room_5
+        global monster_woken_up_room_5
 
         choice = raw_input("> ")
 
-        if choice == "1" or choice == "yes" or choice == "open" or choice == "green":
+        if choice == "1" or choice == "door" or choice == "open" or choice == "green":
             print "You chose door #1. OK!"
             steps += 1
             set_previous_room = 5
             room_2()
-        elif choice == "no":
-            print "Be brave, open that door!"
-            room_5_choice()
+        elif choice == "coins":
+            if coins_room_5 == False and monster_woken_up_room_5 == False:
+                steps += 1
+                coins += 5
+                coins_room_5 = True
+                print "Good choice! Took 5 coins from the pile! Now you have %d coins." % coins
+                room_5()
+            elif coins_room_5 == True and monster_woken_up_room_5 == False:
+                steps += 1
+                coins -= 5
+                monster_woken_up_room_5 = True
+                print "You are too greedy! You have already took coins from this room."
+                print "This time you woke up the monster and he took 5 coins from you."
+                print "Now you have %d coins." % coins
+            else:
+                steps += 1
+                print "The moster is in the way and she is not sleeping. You'd beter go away."
+                room_5()
+        elif choice == "monster" or choice == "kick ass" or choice == "kick":
+            steps += 1
+            print "You're stupid. Now the monster is awake. She is blocking the way to the coins."
+            monster_woken_up_room_5 = True
+            room_5()
         elif choice == "go back":
             steps += 1
             set_previous_room = 5
