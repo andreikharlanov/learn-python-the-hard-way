@@ -18,6 +18,8 @@ treasure_knowledge = False
 
 treasure = False
 
+tunnel_door = False
+
 text_on_the_wall = "\nM... mmm..\n"
 
 howdy = ["Hey, boy!", "La-la-la, whom I see...", "Are you back, baby boy?"]
@@ -313,6 +315,9 @@ def room_4():
         global steps
         global previous_room_now
         global set_previous_room
+        global treasure_knowledge
+        global treasure
+        global tunnel_door
 
         choice = raw_input("> ")
 
@@ -327,10 +332,17 @@ def room_4():
             set_previous_room = 4
             room_12()
         elif choice == "3" or choice == "purple":
-            print "You chose door #3. But there are a lot of stones in front of it."
-            print "You can't open it."
-            steps += 1
-            room_4_choice()
+            if tunnel_door == True:
+                steps += 1
+                set_previous_room = 4
+                if treasure_knowledge == True:
+                    print "Oh, you found a treasure in the tunnel!"
+                    treasure = True
+                room_6()
+            else:
+                print "You chose door #3. But there are a lot of stones in front of it."
+                print "You can't open it."
+                room_4_choice()
         elif choice == "4" or choice == "orange":
             print "You chose door #4. OK!"
             steps += 1
@@ -402,6 +414,7 @@ def room_6():
         global previous_room_now
         global set_previous_room
         global treasure
+        global tunnel_door
 
         choice = raw_input("> ")
 
@@ -417,6 +430,7 @@ def room_6():
                 treasure = True
             steps += 1
             set_previous_room = 6
+            tunnel_door = True
             room_4()
         elif choice == "3" or choice == "yellow":
             print "You chose door #3. OK!"
