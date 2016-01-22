@@ -8,6 +8,10 @@ previous_room_now = 0
 
 set_previous_room = 0
 
+stones = 0
+
+rabbit_gone = False
+
 coins = 0
 
 coins_room_3 = False
@@ -440,7 +444,14 @@ def room_6():
     print "2. Purpe."
     print "3. Yellow."
     print "4. Red."
-    print "\nWhich one do you take?"
+
+    if rabbit_gone == False:
+        print "\nYou see a rabbit in the darkness. It looks a bit dangerous, but you can try to scare him."
+
+    print "\nDo you want to open a door? If yes, which one?"
+
+    if rabbit_gone == False:
+        print "Or do you want to try scare the rabbit?"
 
     def room_6_choice():
         global steps
@@ -448,6 +459,8 @@ def room_6():
         global set_previous_room
         global treasure
         global tunnel_door
+        global stones
+        global rabbit_gone
 
         choice = raw_input("> ")
 
@@ -475,6 +488,17 @@ def room_6():
             steps += 1
             set_previous_room = 6
             room_9()
+        elif (rabbit_gone == False and choice == "scare") or (rabbit_gone == False and choice == "rabbit"):
+            steps += 1
+            print "You scared the rabbit, congratulations!"
+            print "The rabbit dropped three stones from his mouth and ran away."
+            print "The stones look sharp, you can probably use them to temporarily immobilize monsters."
+            stones += 3
+            rabbit_gone = True
+            room_6()
+        elif (rabbit_gone == True and choice == "scare") or (rabbit_gone == True and choice == "rabbit"):
+            print "Rabbit? Which rabbit? There are no rabbits in the room. Open a door!"
+            room_6_choice()
         elif choice == "go back":
             steps += 1
             set_previous_room = 6
@@ -679,6 +703,7 @@ def room_11():
         global previous_room_now
         global set_previous_room
         global coins
+        global stones
 
         choice = raw_input("> ")
 
@@ -699,6 +724,7 @@ def room_11():
                 print "Stupid."
             if treasure == True:
                 print "And you found a treasure in the tunnel!"
+            print "You have %d stones in your pockets." % stones
             exit(0)
         elif choice == "3" or choice == "black":
             print "You chose door #3. OK!"
