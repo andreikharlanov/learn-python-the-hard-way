@@ -2,6 +2,8 @@ import random
 import time
 from sys import exit
 
+map = open('ex36_map.txt', 'r').read()
+
 steps = 0
 
 previous_room_now = 0
@@ -146,12 +148,16 @@ def room_2():
     print "3. The small orange door. It seems unusual."
     print "4. Green."
     print "5. Blue."
-    print "\nWhich one do you take?"
+
+    print "\nAnd you see something on the wall that looks like a map. Do you want to look at it closer?"
+    print "If yes, type 'map'."
+    print "Otherwise type the color of the door you want to enter."
 
     def room_2_choice():
         global steps
         global previous_room_now
         global set_previous_room
+        global map
 
         choice = raw_input("> ")
 
@@ -180,6 +186,11 @@ def room_2():
             steps += 1
             set_previous_room = 2
             room_6()
+        elif choice == "map":
+            steps += 1
+            print "Here is what you see on the wall:\n\n"
+            print map
+            room_2()
         elif choice == "go back":
             steps += 1
             set_previous_room = 2
