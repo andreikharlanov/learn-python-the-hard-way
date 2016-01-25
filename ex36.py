@@ -755,15 +755,29 @@ def room_12():
     global steps
     global previous_room_now
     global set_previous_room
+    global stones
 
     previous_room_now = set_previous_room
 
     welcome_text_room(12)
 
-    print "There is a monster! You ran away."
     steps += 1
-    set_previous_room = 12
-    go_to_room(previous_room_now)
+
+    print "There is a monster!"
+    if stones > 0:
+        stones -= 1
+        print "You throw a stone at the monster. She is immobilized for a few seconds."
+        print "You managed to ran away."
+        print "But you have %d stones now." % stones
+        if stones == 0:
+            print "Be more cautious next time."
+        set_previous_room = 12
+        go_to_room(previous_room_now)
+    else:
+        print "You don't have any stones left..."
+        print "Monster ate you."
+        print "Be more cautious next time."
+        exit(0)
 
 def room_13():
     global steps
