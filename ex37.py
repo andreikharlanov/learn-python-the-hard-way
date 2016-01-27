@@ -33,3 +33,12 @@ def print_yo(name):
     print "Yo,", name
 
 print_yo("Andrei")
+
+print "\n-----\n"
+
+# del
+list_1 = ['a', 'b', 'c']
+
+del list_1[0]
+
+print list_1
