@@ -42,3 +42,16 @@ list_1 = ['a', 'b', 'c']
 del list_1[0]
 
 print list_1
+
+# if, elif, else
+print "\n-----\n"
+for i in range(0,10):
+    if (i % 2) == 0 and i != 0:
+        print i
+        print "'i' is an equal number!"
+    elif (i % 2) == 0:
+        print i
+        print "'i' is 0!"
+    else:
+        print i
+        print "'i' is an odd number!"
