@@ -95,3 +95,8 @@ smoker()
 # in
 for i in ["s", "b", "r"]:
     print i, "-->", i * 3
+
+# lambda
+make_power_function = lambda x, y: x ** y
+
+print make_power_function(2, 2)
