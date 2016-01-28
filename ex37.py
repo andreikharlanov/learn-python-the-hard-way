@@ -117,7 +117,7 @@ if apples_in_the_pocket == False or not apples_in_the_pocket == False:
 def important_function(x, y, z):
     pass # remember to implement!
 
-# raise
+# raise, try
 try:
     raise NameError
 except NameError: pass
@@ -127,3 +127,9 @@ def hi(name):
     return "Hi, " + name
 
 print hi("Andrei")
+
+# while
+i = 20
+while i > 10:
+    print "'i' is still bigger than 10. I is:", i
+    i -= 2
