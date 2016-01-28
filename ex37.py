@@ -137,3 +137,35 @@ while i > 10:
 # with
 with open("ex0.txt", "r") as file:
     print file.read()
+
+# yield
+my_list = [zz * zz * zz for zz in range(0,10)]
+my_generator = (z * z for z in range(0, 10))
+
+print "\nGenerator first time:"
+for i in my_generator:
+    print i
+
+print "\nGenerator second time:"
+for i in my_generator:
+    print i
+
+print "\nList first time:"
+for i in my_list:
+    print i
+
+print "\nList second time:"
+for i in my_list:
+    print i
+
+print "----"
+
+def create_generator(power, r):
+    list = range(r)
+    for i in list:
+        yield i ** power
+
+my_generator_2 = create_generator(2, 11)
+
+for i in my_generator_2:
+    print i
