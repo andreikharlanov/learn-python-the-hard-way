@@ -1,7 +1,14 @@
+# from
+from datetime import date
+
+now = date.today()
+
+print now.strftime("Today is %A.")
+
+# and
 variable_1 = 1
 variable_2 = 2
 
-# and
 if variable_1 == 1 and variable_2 == 2:
     print "Everything is OK!\n"
 
