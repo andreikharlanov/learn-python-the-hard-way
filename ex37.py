@@ -116,3 +116,14 @@ if apples_in_the_pocket == False or not apples_in_the_pocket == False:
 # pass
 def important_function(x, y, z):
     pass # remember to implement!
+
+# raise
+try:
+    raise NameError
+except NameError: pass
+
+# return
+def hi(name):
+    return "Hi, " + name
+
+print hi("Andrei")
