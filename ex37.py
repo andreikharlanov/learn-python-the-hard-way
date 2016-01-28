@@ -57,7 +57,6 @@ for i in range(0,10):
         print "'i' is an odd number!"
 
 # except, as
-
 def devide_by_zero(x):
     return x / 0
 
@@ -65,3 +64,7 @@ try:
     devide_by_zero(1)
 except ZeroDivisionError as why:
     print "Oops. There was an error:", why
+
+# for
+for i in ["a", "b", "c"]:
+    print i * 10
