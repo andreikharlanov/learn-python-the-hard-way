@@ -112,3 +112,7 @@ elif not apples_in_the_pocket == True:
 # or
 if apples_in_the_pocket == False or not apples_in_the_pocket == False:
     print "Tricky!"
+
+# pass
+def important_function(x, y, z):
+    pass # remember to implement!
