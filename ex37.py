@@ -77,3 +77,17 @@ finally:
 # for
 for i in ["a", "b", "c"]:
     print i * 10
+
+# global
+
+nonsmoker = True
+
+def smoker():
+    global nonsmoker
+
+    if nonsmoker == True:
+        print "You're nonsmoker! Congratulations, you're smart!"
+    else:
+        print "You're smoker! Congratulations, you're dumb!"
+
+smoker()
