@@ -91,3 +91,7 @@ def smoker():
         print "You're smoker! Congratulations, you're dumb!"
 
 smoker()
+
+# in
+for i in ["s", "b", "r"]:
+    print i, "-->", i * 3
