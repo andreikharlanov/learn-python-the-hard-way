@@ -102,10 +102,13 @@ make_power_function = lambda x, y: x ** y
 print make_power_function(2, 2)
 
 # not
-
 apples_in_the_pocket = True
 
 if not apples_in_the_pocket == False:
     print "You have apples!"
 elif not apples_in_the_pocket == True:
     print "You don't have apples!"
+
+# or
+if apples_in_the_pocket == False or not apples_in_the_pocket == False:
+    print "Tricky!"
