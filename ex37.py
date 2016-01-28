@@ -133,3 +133,7 @@ i = 20
 while i > 10:
     print "'i' is still bigger than 10. I is:", i
     i -= 2
+
+# with
+with open("ex0.txt", "r") as file:
+    print file.read()
