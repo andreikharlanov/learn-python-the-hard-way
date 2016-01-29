@@ -1,3 +1,4 @@
+# Keywords
 # from
 from datetime import date
 
@@ -169,3 +170,40 @@ my_generator_2 = create_generator(2, 11)
 
 for i in my_generator_2:
     print i
+
+# Data types
+# True, False, None, string, number, float, list, dictionary
+
+was_home = True
+ate_apple = True
+apples_in_bin = None
+apples_name = "Gloria"
+apples = 3
+seeds_per_apple = 3.2
+homework = ["Russian", "Mathematics", "History"]
+grades = {"Russian": 2, "Mathematics": 2, "History": 5}
+
+if was_home == True and ate_apple == False:
+    print "You should have ate that apple."
+
+if ate_apple == False:
+    apples_in_bin =  0
+else:
+    apples_in_bin = 1
+    apples -= 1
+    print "Now you can grow %d apple trees." % seeds_per_apple * apples_in_bin
+
+berated = False
+
+print "What's your grade for the Russian class?"
+print "Oh, i see, its", grades["Russian"]
+
+if "History" in grades:
+    print "At least they teach you history in school."
+
+for i in homework:
+    if berated == False:
+        print "Now go study", i + "!"
+        berated = True
+    else:
+        print "And", i + "!"
