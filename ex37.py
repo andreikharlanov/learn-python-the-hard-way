@@ -207,3 +207,17 @@ for i in homework:
         berated = True
     else:
         print "And", i + "!"
+
+# String Escape Sequences
+# \\, \', \", \a, \b, \f, \n, \r, \t, \v
+print "This is a backslash symbol: \\"
+print "This is a double quote symbol: \""
+print 'This is a single quote symbol: \''
+print "This 'bell' makes a sound: \a"
+print "Backspace Word\bld"
+print "Before formfeed.\fAfter formfeed."
+print "Ha."
+print "\nNew line here."
+print "Rawwaw?\rR!"
+print "Tab? \tYes!"
+print "Vertical\vtab\vto\vfinish\vall\vthis."
