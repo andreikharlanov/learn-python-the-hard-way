@@ -223,7 +223,6 @@ print "Tab? \tYes!"
 print "Vertical\vtab\vto\vfinish\vall\vthis."
 
 # String formats
-
 string_1 = "Aha."
 
 print "We have %d apples." % 45
@@ -241,3 +240,40 @@ print "%%c accepts integer or single character string: %c and %c." % ("Y", 34)
 print "You can throw anything at %%r: %r, %r, %r" % ("Yay", 45, -23.234)
 print "And %%s accepts boring strings: %s." % string_1
 print "100%%r!"
+
+# Operators
+print 5 + 1 - 3 * 2 / 4 ** 3 // 3
+
+if 3 > 1 and 4 < 45 and 54 <= 54 and 55 >= 13 and 12 == 12 and 12 != 3:
+    print "We are good."
+
+print "A %s is not a %s." % ("Fool", "fool")
+
+for i in [1, 2, 3]:
+    print i ** (5 ** i)
+
+yrad = {"xit": 5, "yh": 10}
+
+xoma = 1
+print xoma
+
+xoma += 15
+print xoma
+
+xoma -= 3
+print xoma
+
+xoma /= 3
+print xoma
+
+xoma *= 23
+print xoma
+
+xoma //= 2
+print xoma
+
+xoma %= 13
+print xoma
+
+xoma **= 23
+print xoma
