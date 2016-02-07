@@ -221,3 +221,23 @@ print "\nNew line here."
 print "Rawwaw?\rR!"
 print "Tab? \tYes!"
 print "Vertical\vtab\vto\vfinish\vall\vthis."
+
+# String formats
+
+string_1 = "Aha."
+
+print "We have %d apples." % 45
+print "And %i pears." % 0
+print "45 is %o in octal number system." % 45
+print "45 is %x in hexadecimal number system (lowercase)." % 45
+print "45 is %X in hexadecimal number system (uppercase)." % 45
+print "We can write 45 as %e using exponential notation (lowercase)" % 45
+print "We can write 45 as %E using exponential notation (uppercase)" % 45
+print "As I said, we have %f apples." % 45
+print "And %F pears." % 0
+print "How many apple do we have? %g!" % 45
+print "How many apple do we have? %G!" % 45
+print "%%c accepts integer or single character string: %c and %c." % ("Y", 34)
+print "You can throw anything at %%r: %r, %r, %r" % ("Yay", 45, -23.234)
+print "And %%s accepts boring strings: %s." % string_1
+print "100%%r!"
