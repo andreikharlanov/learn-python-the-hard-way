@@ -6,6 +6,15 @@ class Song(object):
     def sing_me_a_song(self):
         for line in self.lyrics:
             print line
+    def sing_me_a_song_by_letter_at_a_time(self):
+        for line in self.lyrics:
+            i = 0
+            for letter in line:
+                if i < (len(line) - 1):
+                    print " " * i + letter
+                    i += 1
+                else:
+                    print " " * i + letter + "\n"
 
 happy_bday = Song(["Happy birthday to you",
                    "I don't want to get sued",
@@ -30,3 +39,5 @@ bulls_on_parade.sing_me_a_song()
 ya_ya_moo.sing_me_a_song()
 
 hit_song.sing_me_a_song()
+
+hit_song.sing_me_a_song_by_letter_at_a_time()
